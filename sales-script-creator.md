@@ -75,6 +75,9 @@ PHASE 2: DEEP DISCOVERY (20–30 min) — 60% of the call
 
 PHASE 3: TRANSITION & PITCH (5–8 min)
   - Bridge — Summary in their words (Belfort: Micro-Commitments)
+  - Credibility (30 sec) — one line on who you are and why you've seen this before
+  - Thesis — "Do we see the world the same way?" (your view of the root cause, then ask if it matches theirs)
+  - Three useful insights — give value before the pitch, each tied to something they said
   - Honest Frame ("here's how this might fit, here's how it might not")
   - Pain-specific Pitch (max 3 min — name only the 2-3 pains they raised)
   - Social Proof (1 short story if available — same niche or close)
@@ -227,7 +230,30 @@ Summarize what you heard. Use their words.
 **DE:**
 > "Nur damit ich's richtig mitgenommen habe — die größten Zeitfresser sind [Pain 1], [Pain 2], [Pain 3]. Ihr habt [Alternative] probiert, und das ist an [Grund] gescheitert. Du hast gesagt, es wäre euch ungefähr [EUR X] im Monat wert. Habe ich was übersehen?"
 
-Wait for confirmation. Only now do you pitch.
+Wait for confirmation. Then, before you pitch:
+
+#### 3B. Thesis — do we see the world the same way?
+
+Most calls skip this and go straight from summary to pitch. The prospect then hears a solution before agreeing on the problem. The thesis fixes that: in 3–4 plain sentences, say what you believe is the root cause of the pains they just named (not your product, the cause), then ask whether it matches their experience.
+
+**EN:**
+> "Here's how I see it. [Root cause in one sentence.] That's why [the usual fix they tried] rarely helps: [why it fails]. And it gets worse every [month / year] because [driver]. Do you see it the same way, or is it different for you?"
+
+**DE:**
+> "So sehe ich das: [Ursache in einem Satz]. Deshalb hilft [die übliche Lösung] meistens wenig: [warum]. Und es wird jedes [Jahr] ein Stück schlimmer, weil [Treiber]. Sehen Sie das bei sich auch so, oder ist es bei Ihnen anders?"
+
+- If they agree → the pitch becomes the logical answer to a problem you now share.
+- If they disagree → stop and listen. Their version of the cause is the most valuable data of the call; do not pitch against it.
+- Source the thesis from Asset Foundation Row 6 (tried but failed: why the usual fix breaks), Rows 7–8 (trends + cost of inaction: why it gets worse) and Row 13 (false beliefs: the belief the thesis corrects).
+
+#### 3C. Three useful insights
+
+Before the pitch, give three concrete, usable observations, each tied to something they said in Phase 2. Each one should be worth hearing even if they never buy. This is the in-call assessment: it earns the right to pitch and shows how you think.
+
+- Format: "[What you noticed] → [what it probably costs] → [what they could check or do this week]."
+- No product mention inside the insights.
+
+Only now do you pitch.
 
 ---
 
@@ -426,4 +452,5 @@ Run `asset-foundation-builder.md` first.
 - [ ] **Ansprache lock (DE)** — `Du` or `Sie` chosen explicitly per the operator's `{DU_OR_SIE}` input and applied throughout. Mixed register kills credibility on a niche audience.
 - [ ] **No GPT-language** — strip on sight: *leverage, synergize, unlock, streamline, delve, ecosystem, robust, holistic, cutting-edge, next-gen, disruptive*. DE: strip *skalieren, Stack, Pipeline, Funnel, Conversion-Rate-Optimierung* (Sales-Englisch — German operators recognise it instantly as outsider voice).
 - [ ] **No fabricated stats** — every number has a source citation; if unverifiable, mark `[needs validation]`. Common to hallucinate "73% of X say Y" — never ship without a real source URL.
+- [ ] **Thesis present (discovery script)** — Phase 3 contains a root-cause thesis that ends with a "do you see it the same way?" question, followed by three useful insights, BEFORE the pitch. A script that goes summary → pitch fails this check.
 - [ ] **No venture-specific brand baked in** — output uses operator-supplied `{COMPANY}`, `{PRODUCT_NAME}`, `{PRIMARY_HEX}` etc. The skill itself is venture-agnostic; venture content is injected at runtime.
