@@ -12,6 +12,45 @@
 
 **How to use it** — Feed it your Asset Foundations and brand inputs (or an existing page to adapt); it generates the landing and signup pages ready to ship.
 
+
+## Build Principles (read before Step 0)
+
+These principles come from real-world battle-testing on conservative B2B audiences (industrial SMBs, owner-managed firms, skeptical buyers). They override any step below when the two conflict.
+
+### A · What the page is for
+1. **The page sells the conversation, not the product.** The only job of the page is to get a qualified person into a free first conversation. Product name, feature names and architecture stay out of the first impression.
+2. **Problem first, solution last.** Enter the conversation already running in the prospect's head (Kennedy). Scene, consequences, proof, then the offer. Never lead with feature cards, a product demo or technology.
+3. **One page, one audience, one offer.** One niche per page. Inside a page only the *role* changes, never the offer.
+
+### B · Headline and first impression
+4. **The headline is a scene from one role's working week.** Name a concrete system, a concrete event and a concrete person the reader knows. The reader should think: *"That exact thing happened here last month."* Generic claims ("only a few people really know how things work") fail this test.
+5. **Every buying role gets its own headline.** Owner/MD, operations lead, sales lead and technical lead feel different frustrations. Switch the hero via a URL parameter (`?r=owner`, `?r=ops`, `?r=sales`, `?r=tech`) so each person you message directly lands on their own version.
+6. **Curiosity, not explanation.** Pose a question about the reader's own business that they want answered. The answer comes in the conversation, not on the page.
+7. **No product name, no tech, no "AI" in headline, sub-line or CTA.**
+8. **Numbers must be about the reader's business, not the macro trend.** A national statistic is only useful when translated to a firm of the reader's size in the reader's industry. Industry figure + "for a company of your size that means …" (mark arithmetic as an estimate).
+
+### C · Credibility
+9. **Only claim what real proof carries.** "The best companies in your industry do X" is only allowed if you can show them. With one reference customer, name that one case. With none in this niche, say so and switch to a question ("What if you knew …?").
+10. **Quotes only with a source, each quote once.** A quote in quotation marks comes from a real conversation. Never reuse the same "customer quote" across pages.
+11. **No false precision.** No "in one minute", "the last ten percent", "check it in ten seconds" unless measured.
+12. **Honesty as a style.** Say what is missing ("we don't have a reference in your industry yet") and who the offer is *not* for. It builds more trust than any promise.
+13. **No pressure tactics that aren't true.** Scarcity, countdowns and "waiting costs you" only when real. Conservative buyers spot them instantly.
+
+### D · The offer
+14. **The free entry point reveals a problem.** The first conversation is a lead magnet in its own right: the reader learns something about their business they didn't know (Hormozi, *$100M Leads*). Never "book a demo" for cold traffic.
+15. **The next step has a price and is small.** A short paid test with a fixed price that is credited if they continue. Big outcome, little effort, fast result (Hormozi value equation).
+16. **Risk reversal only when contractually backed** and clearly defined.
+
+### E · Language
+17. **Choose the form of address for the audience**, even against the brand guideline (e.g. formal *Sie* for conservative German owners).
+18. **Use the industry's own words**, no anglicisms or consultant vocabulary.
+19. **No slop.** No dashes as punctuation, no three-item lists in sub-lines, no "not X, but Y", no sentence template repeated across roles.
+20. **Answer the audience's first objections** in the FAQ, concretely and without invented commitments (e.g. works council, customer data, "it's all in our system already", budget).
+
+### F · Before anyone sees it
+21. **Three checks before showing a draft:** a slop check (`unleash-stop-slop.md`), a target-group check per niche that plays every role, and a fact check against sources.
+22. **No placeholder and no unconfirmed commitment on the page.** Open items go on the operator's open-points list, not on the page.
+
 ## Overview
 Build high-converting niche landing pages for B2B SaaS targeting German SMBs. Two-page setup: Landing Page + Signup Page with progressive email capture.
 
@@ -85,8 +124,9 @@ The landing page consumes the Asset Foundation CSV + niche-brief MD produced by 
 - Focus on: What keeps the Geschäftsführer up at night? What's the #1 complaint?
 
 ### Step 2: Build the Hook (Hero Section)
-- **Urgency badge**: Lead with the most shocking stat (e.g., "73% nennen Fachkräftemangel als #1 Problem")
-- **Headline**: State the pain in concrete numbers, then promise: "So lösen es die Besten der Branche"
+- **Urgency badge**: Lead with the most relevant sourced stat, translated to the reader's firm where possible (Principle 8)
+- **Headline**: A concrete scene from one role's week (Principle 4). Write one headline per buying role (Principle 5)
+- **Curiosity line**: "So lösen es die Besten der Branche" only if you can show them (Principle 9). Otherwise name your one real case, or ask "What if …?"
 - **Sub-headline**: Name the top 2-3 pains explicitly. Emphasize: no IT project, no technical knowledge, from the industry
 - **CTA**: Curiosity-driven, NOT product-driven. Pattern: "Jetzt herausfinden, wie [niche] unter [size] [pain] lösen"
 - **Trust line**: "Kein IT-Projekt · Kein technisches Wissen nötig · Von [niche] für [niche] · Server in Deutschland"
@@ -108,8 +148,8 @@ The landing page consumes the Asset Foundation CSV + niche-brief MD produced by 
 - Use the most shocking/relatable numbers
 - Format: Big number + short explanation
 
-### Step 5: Feature Cards (Pain-Point Driven)
-- 6 cards, each named after a PAIN being solved (not a feature)
+### Step 5: Pain Cards (Pain-Point Driven)
+- 4–6 cards, each named after a PAIN (not a feature). No mechanism, no technology (Principles 2 and 7)
 - Pattern: "[Pain] bändigen/beenden/im Griff" — not "AI Email Triage"
 - Each card: Pain description + Before/After comparison
 - Use real industry terminology the niche uses daily
@@ -119,7 +159,8 @@ The landing page consumes the Asset Foundation CSV + niche-brief MD produced by 
 - Emphasize: No IT, no technical knowledge, no team training needed
 - Position the founder as "selbst Unternehmer" not "tech expert"
 
-### Step 7: Daily Example / Chat Mock
+### Step 7: Daily Example / Chat Mock (optional)
+- Skip it for skeptical, conservative audiences or when the operator wants no product on the page; a "How it can look" scene written in prose works better there
 - Show a realistic morning briefing conversation
 - Use niche-specific scenarios (e.g., a recurring inbound the practitioner deals with daily — quote requests, compliance deadlines, customer escalations)
 - Make it feel like "someone already did my morning work"
@@ -129,6 +170,7 @@ The landing page consumes the Asset Foundation CSV + niche-brief MD produced by 
 - End with 4 result boxes (time saved, tasks automated, no system changes, your pace)
 
 ### Step 9: Testimonials
+- Only real, sourced quotes, each used once (Principle 10). No testimonials yet? Use one reference case with facts instead
 - 3 testimonials: 2 from the niche, 1 cross-niche credibility
 - Frame as operational relief, NOT technology praise
 
@@ -142,8 +184,8 @@ The landing page consumes the Asset Foundation CSV + niche-brief MD produced by 
 - Emphasize: No migration, no training, no team involvement
 
 ### Step 12: Guarantee
-- 90-day pilot, zero risk
-- "10 Pilotplätze" creates urgency
+- Only a guarantee that is contractually backed and clearly defined (Principle 16)
+- Scarcity ("10 Pilotplätze") only if the limit is real (Principle 13)
 
 ### Step 13: Team Section
 - Frame founders as industry people, NOT tech people
@@ -280,4 +322,6 @@ Run `asset-foundation-builder.md` first if you don't have a filled CSV.
 - [ ] **Ansprache lock (DE)** — `Du` or `Sie` chosen explicitly per the operator's `{DU_OR_SIE}` input and applied throughout. Mixed register kills credibility on a niche audience.
 - [ ] **No GPT-language** — strip on sight: *leverage, synergize, unlock, streamline, delve, ecosystem, robust, holistic, cutting-edge, next-gen, disruptive*. DE: strip *skalieren, Stack, Pipeline, Funnel, Conversion-Rate-Optimierung* (Sales-Englisch — German operators recognise it instantly as outsider voice).
 - [ ] **No fabricated stats** — every number has a source citation; if unverifiable, mark `[needs validation]`. Common to hallucinate "73% of X say Y" — never ship without a real source URL.
+- [ ] **Build Principles applied** — one headline per role, scene not claim, no product in the hero, only real proof, no placeholder visible.
+- [ ] **Three checks run** — slop check (`unleash-stop-slop.md`), target-group check per role, fact check (Principle 21).
 - [ ] **No venture-specific brand baked in** — output uses operator-supplied `{COMPANY}`, `{PRODUCT_NAME}`, `{PRIMARY_HEX}` etc. The skill itself is venture-agnostic; venture content is injected at runtime.
