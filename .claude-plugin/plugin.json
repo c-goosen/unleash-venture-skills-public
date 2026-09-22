@@ -1,6 +1,5 @@
 {
   "name": "unleash-venture-skills",
-  "version": "1.0.0",
   "description": "Battle-tested go-to-market skills: asset foundations, landing pages, drip campaigns, prospect lists, cold outbound, LinkedIn, sales scripts, content, Meta ads, investor one-pagers and a slop checker.",
   "author": {
     "name": "Unleash",
@@ -9,5 +8,12 @@
   "homepage": "https://unleash-ventures.com",
   "repository": "https://github.com/pas-ventures/unleash-venture-skills-public",
   "license": "MIT",
-  "keywords": ["gtm", "marketing", "sales", "outbound", "landing-page", "copywriting"]
+  "keywords": [
+    "gtm",
+    "marketing",
+    "sales",
+    "outbound",
+    "landing-page",
+    "copywriting"
+  ]
 }

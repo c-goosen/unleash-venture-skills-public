@@ -15,7 +15,28 @@ This repo is a Claude Code plugin marketplace. In Claude Code, run:
 
 That installs all 14 skills. Claude picks the right one from what you ask for ("build me a landing page for…"), or you can call one by name, e.g. `/unleash-venture-skills:landing-page-builder`.
 
-To pull new versions later: `/plugin marketplace update unleash-ventures`.
+### Turn on auto-update
+
+Claude Code leaves auto-update off for third-party marketplaces, so switch it on once:
+
+1. Run `/plugin` and open the **Marketplaces** tab
+2. Select `unleash-ventures`
+3. Choose **Enable auto-update**
+
+Claude Code then checks for new skill versions in the background after each session starts and asks you to run `/reload-plugins` when something changed. Without auto-update, pull changes by hand with `/plugin marketplace update unleash-ventures`.
+
+For organisations, admins can turn it on for everyone in managed settings:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "unleash-ventures": {
+      "source": { "source": "github", "repo": "pas-ventures/unleash-venture-skills-public" },
+      "autoUpdate": true
+    }
+  }
+}
+```
 
 ## Skills Included
 
@@ -104,7 +125,7 @@ Built on **[stop-slop](https://github.com/hardikpandya/stop-slop)** by [Hardik P
 ## How to Use with Claude Code
 
 ### Option A: Install the plugin (recommended)
-See [Install](#install). Skills load automatically in every project and update with `/plugin marketplace update`.
+See [Install](#install). Skills load automatically in every project and stay current once you [turn on auto-update](#turn-on-auto-update).
 
 ### Option B: Copy into a project
 Copy any folder from `skills/` into your project's `.claude/skills/` (or `~/.claude/skills/` for all projects). Claude Code loads each `SKILL.md` as a skill.
