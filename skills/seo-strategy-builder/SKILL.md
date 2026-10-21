@@ -52,7 +52,7 @@ If an Asset Foundation exists (see the `asset-foundation-builder` skill), read i
 
 ## Step 0 — Check the tools
 
-Ask yourself which MCP tools you can see. If either is missing, give the operator the command to run in their terminal, then stop until they restart Claude Code:
+Check which MCP tools you have. MCP tools are often deferred (listed by name only), so search for and load `playwright` and `serpapi` tools before calling one missing. If either is genuinely absent, give the operator the command to run in their terminal, then stop until they restart Claude Code:
 
 ```bash
 # Browser
@@ -67,17 +67,31 @@ Package names drift. If an install fails, check the official Playwright MCP and 
 
 **Fallbacks**, so the skill still runs:
 - No Playwright: fetch `sitemap.xml` and pages with your web-fetch tool. JavaScript-rendered pages may come back thin, so say so in the report.
-- No SerpApi MCP but `SERPAPI_API_KEY` is set: call `https://serpapi.com/search.json?engine=…&q=…&api_key=$SERPAPI_API_KEY` with curl.
-- No search data at all: stop. A strategy without live results is guessing.
+- No SerpApi MCP: use any installed SerpApi skill, or, if `SERPAPI_API_KEY` is set, call `https://serpapi.com/search.json?engine=…&q=…&api_key=$SERPAPI_API_KEY` with curl.
+- No search data at all: offer a **crawl-only run** (Steps 0–1 plus the on-page gaps you noticed), and say clearly that no build list comes without live results. A strategy without them is guessing.
 
 ## Step 1 — Crawl your site
 
 Goal: know exactly what exists, so you never recommend a page the operator already has.
 
-1. Read `robots.txt` and respect it.
+1. Read `robots.txt` and respect it. If there is none (404), crawling is allowed; still go one page at a time.
 2. Get the URL list from `sitemap.xml` (and nested sitemaps). With no sitemap, follow internal links from the homepage, breadth-first.
 3. **Cap at 100 pages** unless the operator asks for more. On a large blog, take every non-post page plus the 50 most recent posts.
-4. For each page, `browser_navigate` then `browser_snapshot`, and save clean markdown to `seo/site/{slug}.md` with a header:
+4. **Off-domain content counts.** If the site links to the operator's own blog, newsletter, or docs on another domain, crawl those too (same cap). A topic covered there is a page they already have. Note which domain it lives on, since content off the main domain builds that domain's rankings, not the site's.
+5. For each page, `browser_navigate`, then pull the content with `browser_evaluate`. `browser_snapshot` returns an accessibility tree without meta tags, so it is a fallback only. A function like this returns what you need:
+
+```js
+() => ({
+  title: document.title,
+  h1: document.querySelector('h1')?.innerText.trim() ?? '',
+  meta_description: document.querySelector('meta[name="description"]')?.content ?? '',
+  canonical: document.querySelector('link[rel="canonical"]')?.href ?? '',
+  text: document.body.innerText,
+  links: [...document.querySelectorAll('a[href]')].map(a => a.href),
+})
+```
+
+6. Save clean markdown to `seo/site/{slug}.md`, where slug is the URL path with `/` as `-`, and `home` for the root. Start each file with a header:
 
 ```markdown
 ---
@@ -89,9 +103,9 @@ words: <approx word count>
 ---
 ```
 
-5. Write `seo/site-map.csv`: `url, title, h1, words, topic, inferred_target_keyword`.
+7. Write `seo/site-map.csv`: `url, title, h1, words, topic, inferred_target_keyword`. Keep any raw captures in `seo/raw/`. Playwright may also write its own files to `.playwright-mcp/`; tell the operator so they can delete them or add the folder to `.gitignore`.
 
-Then summarise in five lines: what the site is about, which topics it already covers, and which pages look thin (under ~300 words) or duplicated.
+Then summarise in five lines: what the site is about, which topics it already covers, which pages look thin (under ~300 words) or duplicated, and on-page gaps you saw on the way: missing meta descriptions, missing canonicals, tools or offers mentioned but with no page of their own.
 
 ## Step 2 — Seed keywords
 
