@@ -13,7 +13,7 @@ This repo is a Claude Code plugin marketplace. In Claude Code, run:
 /plugin install unleash-venture-skills@unleash-ventures
 ```
 
-That installs all 14 skills. Claude picks the right one from what you ask for ("build me a landing page for…"), or you can call one by name, e.g. `/unleash-venture-skills:landing-page-builder`.
+That installs all 15 skills. Claude picks the right one from what you ask for ("build me a landing page for…"), or you can call one by name, e.g. `/unleash-venture-skills:landing-page-builder`.
 
 ### Turn on auto-update
 
@@ -75,6 +75,9 @@ For organisations, admins can turn it on for everyone in managed settings:
 |-------|-------------|----------|
 | **[Content Engine](skills/content-engine/SKILL.md)** | Framework-driven content production with voice training, target-group research, platform optimization | Producing founder-led thought leadership at scale |
 | **[Facebook Ads From Customer Transcripts](skills/facebook-ads-from-customer-transcripts/SKILL.md)** | Turn customer transcripts into hook / body / CTA variants in the customer's own language | Running Meta ads in B2C or SMB-B2B |
+| **[SEO Strategy Builder](skills/seo-strategy-builder/SKILL.md)** | Crawls your site with a real browser (Playwright MCP), researches live search results (SerpApi MCP), and returns a ranked list of pages to build — target keyword, demand graded from evidence, why you can rank, and a brief for each | Before writing for search, or when organic traffic has stalled |
+
+The SEO workflow is adapted from [James Devonport's write-up](https://jamesdevonport.com/p/i-got-claude-code-to-build-my-entire) on building an SEO strategy with Claude Code and two free MCPs.
 
 ### Fundraising + Intros
 | Skill | What it does | Use when |

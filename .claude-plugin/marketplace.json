@@ -11,9 +11,9 @@
     {
       "name": "unleash-venture-skills",
       "source": "./",
-      "description": "Battle-tested go-to-market skills: asset foundations, landing pages, drip campaigns, prospect lists, cold outbound, LinkedIn, sales scripts, content, Meta ads, investor one-pagers and a slop checker.",
+      "description": "Battle-tested go-to-market skills: asset foundations, landing pages, drip campaigns, prospect lists, cold outbound, LinkedIn, sales scripts, content, SEO strategy, Meta ads, investor one-pagers and a slop checker.",
       "category": "productivity",
-      "keywords": ["gtm", "marketing", "sales", "outbound", "landing-page", "copywriting"]
+      "keywords": ["gtm", "marketing", "sales", "outbound", "landing-page", "copywriting", "seo"]
     }
   ]
 }

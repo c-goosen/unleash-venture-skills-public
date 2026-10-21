@@ -1,6 +1,6 @@
 {
   "name": "unleash-venture-skills",
-  "description": "Battle-tested go-to-market skills: asset foundations, landing pages, drip campaigns, prospect lists, cold outbound, LinkedIn, sales scripts, content, Meta ads, investor one-pagers and a slop checker.",
+  "description": "Battle-tested go-to-market skills: asset foundations, landing pages, drip campaigns, prospect lists, cold outbound, LinkedIn, sales scripts, content, SEO strategy, Meta ads, investor one-pagers and a slop checker.",
   "author": {
     "name": "Unleash",
     "url": "https://unleash-ventures.com"
@@ -15,6 +15,7 @@
     "sales",
     "outbound",
     "landing-page",
-    "copywriting"
+    "copywriting",
+    "seo"
   ]
 }
