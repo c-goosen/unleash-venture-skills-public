@@ -249,6 +249,23 @@ If even 20% reads as outsider voice, strip until practitioner phrases dominate. 
 
 If you fail check 1 or 5, the foundation needs more work — go back to the corpus. Checks 2–4 are run after launch, mostly to optimize spend. Run check 1 weekly during the first quarter of a niche; run check 5 every time you change copy.
 
+## Releasing (maintainers)
+
+Installed copies only update when the version number changes. A change merged without a version bump never reaches users.
+
+1. Bump `version` in **both** `.claude-plugin/plugin.json` and the plugin entry in `.claude-plugin/marketplace.json`:
+   - **Patch** (1.0.**1**): wording fixes and clarifications inside a skill
+   - **Minor** (1.**1**.0): a new skill, or a new step or output in an existing one
+   - **Major** (**2**.0.0): a skill renamed or removed, or an output format other skills depend on changed
+2. Run `claude plugin validate .`
+3. Merge to `main`, then from an up-to-date `main` tag and push the release:
+
+```bash
+claude plugin tag . --push -m "Release %s"
+```
+
+This creates the tag `unleash-venture-skills--v{version}`, and fails if the two manifest versions don't match.
+
 ## License + Use
 
 This repo is shared openly so any founder building inside the Unleash community — and beyond — can fork it, adapt it, and ship faster. Please credit Unleash if you publish derivatives.
