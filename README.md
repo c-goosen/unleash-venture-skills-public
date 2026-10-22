@@ -6,14 +6,58 @@ These are the skills used inside the [Unleash](https://unleash-ventures.com) com
 
 ## Install
 
-This repo is a Claude Code plugin marketplace. In Claude Code, run:
+This repo is a Claude Code plugin marketplace. The marketplace is called `unleash-ventures` and holds one plugin, `unleash-venture-skills`, which contains all 15 skills.
+
+### In Claude Code
 
 ```
 /plugin marketplace add pas-ventures/unleash-venture-skills-public
 /plugin install unleash-venture-skills@unleash-ventures
 ```
 
-That installs all 15 skills. Claude picks the right one from what you ask for ("build me a landing page for…"), or you can call one by name, e.g. `/unleash-venture-skills:landing-page-builder`.
+Then run `/reload-plugins`, or start a new session.
+
+### From your terminal
+
+```bash
+claude plugin marketplace add pas-ventures/unleash-venture-skills-public
+claude plugin install unleash-venture-skills@unleash-ventures
+```
+
+By default the skills are installed for you in every project (`--scope user`). Add `--scope project` to install them for one repo only and share them with everyone who works in it.
+
+### Set it up for a team
+
+Commit this to your repo's `.claude/settings.json`. When teammates trust the folder, Claude Code asks them to install the marketplace and turns the plugin on:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "unleash-ventures": {
+      "source": { "source": "github", "repo": "pas-ventures/unleash-venture-skills-public" }
+    }
+  },
+  "enabledPlugins": {
+    "unleash-venture-skills@unleash-ventures": true
+  }
+}
+```
+
+### Use the skills
+
+Ask for what you need ("build me a landing page for…", "write a cold email sequence for…") and Claude picks the right skill. To call one directly, use `/unleash-venture-skills:<skill-name>`, e.g. `/unleash-venture-skills:landing-page-builder`. The skill names are the folder names under [`skills/`](skills/). Run `/skills` to see them all.
+
+The SEO Strategy Builder also needs two free MCP servers (Playwright and SerpApi). It checks for them on the first run and tells you the commands.
+
+### Update or remove
+
+```bash
+claude plugin marketplace update unleash-ventures            # pull the latest skills
+claude plugin uninstall unleash-venture-skills@unleash-ventures
+claude plugin marketplace remove unleash-ventures
+```
+
+**Switching from copied files?** Before the plugin existed, skills were copied by hand from `.md` files in this repo's root, and those files are gone now. Once the plugin is installed, delete your old copies from `~/.claude/skills/` or your project's `.claude/skills/` so you don't end up with two versions of the same skill.
 
 ### Turn on auto-update
 
@@ -135,6 +179,13 @@ Copy any folder from `skills/` into your project's `.claude/skills/` (or `~/.cla
 
 ### Option C: Fork this repo
 Fork the repo, replace the placeholders with your venture's specifics, and add your fork as the marketplace instead: `/plugin marketplace add {your-github-user}/unleash-venture-skills-public`.
+
+To try your changes before pushing, run these from the repo root:
+
+```bash
+claude plugin validate .         # check the manifests and skills
+claude --plugin-dir .            # start a session with your working copy loaded
+```
 
 ## Customisation
 
